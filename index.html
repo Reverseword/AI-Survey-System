@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سیستم نظرسنجی هوشمند | نوآوران درمان اطلس</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+<header>
+<h1>سیستم نظرسنجی هوشمند</h1>
+<h2>نوآوران درمان اطلس</h2>
+<div class="logo-container">
+<img src="https://via.placeholder.com/100x50" alt="لوگو نوآوران درمان اطلس" class="logo">
+</div>
+</header>
+
+<div class="container">
+<div class="tabs">
+<div class="tab active" data-tab="setup">تنظیم سوالات</div>
+<div class="tab" data-tab="survey">جمع‌آوری پاسخ‌ها</div>
+<div class="tab" data-tab="analysis">تحلیل و گزارش</div>
+<div class="tab" data-tab="presentation">ارائه نتایج</div>
+</div>
+
+<div id="setup" class="tab-content active">
+<div class="admin-panel">
+<h3>پنل مدیریت سوالات</h3>
+<p>در این بخش می‌توانید سوالات نظرسنجی را ویرایش کنید.</p>
+
+<div class="form-group">
+<label for="new-question">سوال جدید:</label>
+<input type="text" id="new-question" placeholder="متن سوال را وارد کنید">
+</div>
+
+<div class="form-group">
+<label for="question-type">نوع سوال:</label>
+<select id="question-type">
+<option value="multiple">چند گزینه‌ای</option>
+<option value="rating">امتیازدهی (1 تا 5)</option>
+<option value="text">پاسخ متنی</option>
+</select>
+</div>
+
+<div class="form-group" id="options-container">
+<label>گزینه‌ها:</label>
+<div id="options-list">
+<input type="text" class="option-input" placeholder="گزینه 1">
+<input type="text" class="option-input" placeholder="گزینه 2">
+<input type="text" class="option-input" placeholder="گزینه 3">
+</div>
+<button type="button" id="add-option" class="btn-success">+ افزودن گزینه</button>
+</div>
+
+<div class="admin-controls">
+<button type="button" id="add-question">افزودن سوال</button>
+<button type="button" id="reset-questions" class="btn-danger">بازنشانی همه</button>
+</div>
+
+<h3>لیست سوالات فعلی</h3>
+<div class="question-list-container">
+<ul class="question-list" id="question-list">
+<!-- سوالات به صورت پویا اینجا قرار می‌گیرند -->
+</ul>
+</div>
+</div>
+</div>
+
+<div id="survey" class="tab-content">
+<h2>جمع‌آوری پاسخ‌ها</h2>
+<div class="response-count">
+<span id="response-counter">0</span> پاسخ دریافت شده
+</div>
+
+<div class="qr-container text-center">
+<h3>برای مشارکت در نظرسنجی، کد QR زیر را اسکن کنید</h3>
+<div id="qrcode"></div>
+</div>
+
+<div class="survey-link">
+<p>یا از طریق لینک زیر اقدام کنید:</p>
+<div class="form-group">
+<input type="text" id="survey-link" readonly>
+<button id="copy-link">کپی لینک</button>
+</div>
+</div>
+
+<div class="form-preview">
+<h3>پیش‌نمایش فرم نظرسنجی</h3>
+<div id="survey-preview">
+<!-- پیش‌نمایش فرم نظرسنجی اینجا قرار می‌گیرد -->
+</div>
+</div>
+</div>
+
+<div id="analysis" class="tab-content">
+<h2>تحلیل و گزارش</h2>
+
+<div class="chart-container">
+<h3>نتایج سوال 1: میزان رضایت کلی</h3>
+<canvas id="responses-chart"></canvas>
+</div>
+
+<div class="chart-container">
+<h3>تحلیل احساسات پاسخ‌ها</h3>
+<canvas id="sentiment-chart"></canvas>
+</div>
+
+<div class="analysis-container">
+<div class="analysis-title">تحلیل هوش مصنوعی</div>
+<div id="ai-analysis">
+<p>در حال تحلیل پاسخ‌ها... لطفاً صبر کنید.</p>
+</div>
+</div>
+
+<div class="visual-container">
+<h3>ویژوالیزیشن سه‌بعدی</h3>
+<div class="canvas-3d" id="visualization-3d"></div>
+</div>
+</div>
+
+<div id="presentation" class="tab-content">
+<h2>ارائه نتایج</h2>
+
+<div class="presentation-controls">
+<button id="start-presentation">شروع ارائه</button>
+<button id="next-slide">اسلاید بعدی</button>
+<button id="prev-slide">اسلاید قبلی</button>
+</div>
+
+<div class="presentation-container" id="presentation-container">
+<!-- اسلایدها اینجا پر می‌شوند -->
+</div>
+</div>
+</div>
+
+<footer>
+<p>&copy; ۱۴۰۳ - نوآوران درمان اطلس</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
