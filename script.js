@@ -24,6 +24,23 @@ let responses = [];
 let responseCounter = 0;
 let currentSlide = 0;
 let charts = {};
+let charts = {};
+
+// پیکربندی Firebase
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+// مقداردهی Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+// آرایه‌ای از کلمات متداول برای شبیه‌سازی پاسخ‌های متنی
 
 // آرایه‌ای از کلمات مهارتی برای شبیه‌سازی پاسخ‌های متنی
 const skillWords = [
